@@ -1,0 +1,12 @@
+export { default as Navbar } from "./Navbar";
+export { default as Header } from "./Header";
+export { default as Features } from "./features/Features";
+export { default as UseCases } from "./useCases/UseCases";
+export { default as Events } from "./events/Events";
+export { default as Testimonials } from "./testimonials/Testimonials";
+export { default as WebApps } from "./WebApps";
+export { default as UsageVideo } from "./usageVideo/UsageVideo";
+export { default as Gallery } from "./gallery/Gallery";
+export { default as Faq } from "./faq/Faq";
+export { default as Contact } from "./Contact";
+export { default as Footer } from "./Footer";
