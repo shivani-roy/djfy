@@ -1,5 +1,6 @@
 export { default as Navbar } from "./Navbar";
 export { default as Header } from "./Header";
+export { default as About } from "./About";
 export { default as Features } from "./features/Features";
 export { default as UseCases } from "./useCases/UseCases";
 export { default as Events } from "./events/Events";

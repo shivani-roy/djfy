@@ -242,6 +242,10 @@ const Wrapper = styled.section`
             border-radius: 4px;
           }
 
+          input::placeholder{
+            color: white;
+          }
+
           .message {
             width: 100%;
             padding: 10px;

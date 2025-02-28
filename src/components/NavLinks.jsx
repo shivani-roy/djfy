@@ -37,7 +37,7 @@ const navLinks = [
   },
 ];
 
-const NavLinks = () => {
+const NavLinks = ({ toggleShow }) => {
   return (
     <div>
       {navLinks.map(({ page, url }, index) => {
@@ -45,6 +45,7 @@ const NavLinks = () => {
           <a
             href={url}
             key={index}
+            onClick={toggleShow}
           >
             {page}
           </a>

@@ -8,8 +8,8 @@ import styled from "styled-components";
 
 const Header = () => {
   return (
-    <div>
-      {/* <Wrapper>
+    <Wrapper>
+      <div className="center">
         <div className="icons">
           <div className="icon">
             <img
@@ -38,34 +38,68 @@ const Header = () => {
             <span>+91 1234 5678 90</span>
           </div>
         </div>
-        <div>
-          <p>Login / Register</p>
+
+        <p>Login / Register</p>
+        <div className="links">
           <SocialLinks />
         </div>
-      </Wrapper> */}
-
-      <Navbar />
-      <About />
-    </div>
+      </div>
+    </Wrapper>
   );
 };
 
 const Wrapper = styled.section`
-  .icons {
+  background: #0e1135;
+  margin: 0 auto;
+  height: 60px;
+  display: none;
+  padding: 1rem;
+
+  @media screen and (min-width: 1100px) {
+    display: block;
+  }
+
+  .center {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
-    margin-top: 2rem;
+    justify-content: space-between;
     align-items: center;
-    gap: 4rem;
+    /* border: 2px solid white; */
+    /* padding-top: 1rem; */
 
-    .icon {
+    .icons {
       display: flex;
-      gap: 10px;
+      align-items: center;
+      gap: 1rem;
 
-      img {
-        width: 24px;
-        height: 24px;
+      .icon {
+        display: flex;
+        gap: 10px;
+        cursor: pointer;
+
+        img {
+          width: 10px;
+          height: 10px;
+          margin-top: 4px;
+        }
+
+        span {
+          color: #bcbcbc;
+          font-size: 12px;
+          font-weight: 500;
+        }
       }
     }
+
+    p {
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      width: 100px;
+    }
+
+   
   }
 `;
 export default Header;

@@ -3,6 +3,7 @@ import bgImg from "../assets/images/bg-img.png";
 import heroImg from "../assets/images/hero-img.png";
 import searchIcon from "../assets/images/search-icon.png";
 import BarGraph from "./BarGraph";
+import Navbar from "./Navbar";
 
 const About = () => {
   return (
@@ -15,6 +16,7 @@ const About = () => {
         />
       </div>
 
+      <Navbar/>
       <img
         src={searchIcon}
         alt="search-icon"
@@ -62,6 +64,7 @@ const Wrapper = styled.section`
   margin-bottom: 2rem;
   padding-bottom: 14rem;
   min-height: 95vh;
+  overflow: hidden;
 
   .img-container {
     width: 100%;
@@ -85,7 +88,7 @@ const Wrapper = styled.section`
     width: 76px;
     height: 76px;
     right: 6%;
-    top: 10%;
+    top: 20%;
     cursor: pointer;
   }
 

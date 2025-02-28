@@ -1,6 +1,7 @@
 // import './App.css'
 import {
   Header,
+  About,
   Features,
   UseCases,
   Events,
@@ -17,6 +18,7 @@ function App() {
   return (
     <>
       <Header />
+      <About />
       <Features />
       <UseCases />
       <Events />
