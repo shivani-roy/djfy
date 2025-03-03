@@ -5,9 +5,24 @@ import searchbg from "../../assets/images/search-bg.png";
 import searchbar from "../../assets/images/search-bar.png";
 import { useState } from "react";
 import eventsList from "./eventsList";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Events = () => {
-  const [events, setEvents] = useState(eventsList);
+  const [events, setEvents] = useState(
+    Array(15)
+      .fill()
+      .map((_, i) => eventsList[i % eventsList.length])
+  );
+
+  const settings = {
+    dots: true,
+    // infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
 
   return (
     <Wrapper id="events">
@@ -39,29 +54,31 @@ const Events = () => {
       </div>
 
       <div className="events-container">
-        <FaArrowLeft />
-        {events.map(({ image, date, place, artist }, index) => {
-          return (
-            <div
-              key={index}
-              className="event"
-            >
-              <img
-                src={image}
-                alt="artist-img"
-                className="img"
-              />
-              <div className="fade-effect"></div>
+        {/* <FaArrowLeft /> */}
+        <Slider {...settings}>
+          {events.map(({ image, date, place, artist }, index) => {
+            return (
+              <div
+                key={index}
+                className="event"
+              >
+                <img
+                  src={image}
+                  alt="artist-img"
+                  className="img"
+                />
+                <div className="fade-effect"></div>
 
-              <div className="content">
-                <span className="date">{date}</span>
-                <h5>{artist}</h5>
-                <span className="place">{place}</span>
+                <div className="content">
+                  <span className="date">{date}</span>
+                  <h5>{artist}</h5>
+                  <span className="place">{place}</span>
+                </div>
               </div>
-            </div>
-          );
-        })}
-        <FaArrowRight />
+            );
+          })}
+        </Slider>
+        {/* <FaArrowRight /> */}
       </div>
     </Wrapper>
   );
@@ -149,17 +166,18 @@ const Wrapper = styled.section`
   .events-container {
     position: absolute;
     bottom: -150px;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     width: 100%;
     height: 20rem;
     gap: 3rem;
     padding: 2rem;
+    margin: 0 auto;
 
     .event {
       position: relative;
-      width: 300px;
+      width: 20rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       border-radius: 16px;
@@ -167,7 +185,9 @@ const Wrapper = styled.section`
 
       .img {
         width: 100%;
+        /* max-width: 20rem; */
         height: auto;
+        max-height: 25rem;
         display: block;
       }
 
@@ -210,10 +230,36 @@ const Wrapper = styled.section`
     }
   }
 
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 1100px) {
     .events-container {
       display: none;
     }
+  }
+
+  .slider-container {
+    width: 80%;
+    height: 10rem;
+    max-height: 10rem;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+
+  .slick-slide {
+    padding: 0 80px; /* Add padding around each slide to create gaps */
+  }
+
+  .slick-list {
+    margin: 10px; /* Adjust margin to account for the padding on slides */
+  }
+
+  .slider-container img {
+    /* border: 2px solid white; */
+    width: 100%;
+    /* height: auto; */
+    max-height: 5rem;
+    display: block;
+    margin: 0 auto;
   }
 `;
 
